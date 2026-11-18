@@ -1,0 +1,75 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - heading "WebNN Facial Landmark Detection" [level=1] [ref=e3]
+    - paragraph [ref=e4]: Real-time face detection & 68-point landmark tracking using the WebNN API
+    - generic [ref=e5]:
+      - text: Your browser does not support WebNN. Please use Chrome 113+ or Edge with the WebNN flag enabled. Go to
+      - code [ref=e6]: chrome://flags
+      - text: and enable
+      - code [ref=e7]: "#web-machine-learning-neural-network"
+      - text: . See
+      - link "WebNN Installation Guides" [ref=e8] [cursor=pointer]:
+        - /url: https://github.com/webmachinelearning/webnn-samples/#webnn-installation-guides
+      - text: for details.
+    - generic [ref=e9]: WebNN not supported
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]: "Device:"
+        - combobox "Device:" [ref=e16] [cursor=pointer]:
+          - option "GPU" [selected]
+          - option "CPU"
+      - button "Start Camera" [disabled] [ref=e17]
+      - button "Start Detection" [disabled] [ref=e18]
+      - button "Stop Camera" [disabled] [ref=e19]
+  - generic [ref=e21]:
+    - button "Close help" [ref=e23] [cursor=pointer]: ×
+    - generic [ref=e25]:
+      - generic [ref=e26]: How to Use — Facial Detection
+      - generic [ref=e27]: Real-time face detection & 68-point landmark tracking powered by WebNN
+      - generic [ref=e28]:
+        - generic [ref=e29]: "1"
+        - generic [ref=e30]:
+          - generic [ref=e31]: Status Bar
+          - generic [ref=e32]: Shows the current state of the demo (checking WebNN support, camera active, detecting, etc.) and displays FPS during inference.
+      - generic [ref=e33]:
+        - generic [ref=e34]: "2"
+        - generic [ref=e35]:
+          - generic [ref=e36]: Camera View
+          - generic [ref=e37]: Live camera feed with a canvas overlay on top. Detected face bounding boxes and 68 facial landmark points are drawn here in real time.
+      - generic [ref=e38]:
+        - generic [ref=e39]: "3"
+        - generic [ref=e40]:
+          - generic [ref=e41]: Device Selector
+          - generic [ref=e42]: Choose between GPU and CPU for WebNN inference. GPU is faster but requires hardware support; CPU works as a fallback.
+      - generic [ref=e43]:
+        - generic [ref=e44]: Start Camera
+        - generic [ref=e45]: →
+        - generic [ref=e46]: Start Detection
+        - generic [ref=e47]: →
+        - generic [ref=e48]: Stop Camera
+      - generic [ref=e49]:
+        - generic [ref=e50]: "4"
+        - generic [ref=e51]:
+          - generic [ref=e52]: Start Camera
+          - generic [ref=e53]: Requests access to your webcam via getUserMedia. You will see a browser permission prompt on first use.
+      - generic [ref=e54]:
+        - generic [ref=e55]: "5"
+        - generic [ref=e56]:
+          - generic [ref=e57]: Start Detection
+          - generic [ref=e58]: Loads the SSD MobileNetV2 face detector and Face Landmark models, builds the WebNN graph, and begins the real-time inference loop.
+      - generic [ref=e59]:
+        - generic [ref=e60]: "6"
+        - generic [ref=e61]:
+          - generic [ref=e62]: Stop Camera
+          - generic [ref=e63]: Stops the camera stream and inference loop. You can restart anytime by clicking Start Camera again.
+      - generic [ref=e64]:
+        - generic [ref=e65]: "7"
+        - generic [ref=e66]:
+          - generic [ref=e67]: Progress Indicator
+          - generic [ref=e68]: "Appears while models are loading. Shows three stages: loading model weights, building the WebNN graph, and starting inference."
+      - generic [ref=e69]:
+        - generic [ref=e70]: "8"
+        - generic [ref=e71]:
+          - generic [ref=e72]: WebNN Requirement
+          - generic [ref=e73]: This demo requires Chrome or Edge with the WebNN flag enabled. Go to chrome://flags and enable "Web Machine Learning Neural Network".
+  - button "How to use" [active] [ref=e20] [cursor=pointer]: "?"

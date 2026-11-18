@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hand Tracking with MediaPipe</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../shared/css/help-overlay.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Hand Tracking with MediaPipe</h1>
+    <p class="subtitle">Real-time hand landmark detection &amp; tracking using MediaPipe Hands</p>
+
+    <div id="error" class="error" hidden></div>
+
+    <div class="status-bar">
+      <span id="status">Ready. Click "Start Camera" to begin.</span>
+      <span id="fps" hidden></span>
+    </div>
+
+    <div class="video-container" id="videoContainer">
+      <video id="camera" autoplay playsinline></video>
+      <canvas id="overlay"></canvas>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn">Start Camera</button>
+      <button id="detectBtn" disabled>Start Detection</button>
+      <button id="stopBtn" disabled>Stop Camera</button>
+    </div>
+
+    <div id="loadProgress" class="progress" hidden>
+      <div class="progress-step" id="stepLoad">Loading MediaPipe Hands model...</div>
+      <div class="progress-step" id="stepInfer">Running inference...</div>
+    </div>
+
+    <div id="handInfo" class="hand-info" hidden></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.min.js"
+          crossorigin="anonymous"></script>
+  <script type="module" src="js/app.js"></script>
+  <script type="module">
+    import { initHelpOverlay } from '../shared/js/help-overlay.js';
+    initHelpOverlay([
+      {
+        selector: '.status-bar',
+        label: 'Status Bar',
+        desc: 'Shows the current state of the demo and displays frames-per-second (FPS) during hand tracking inference.',
+        anchor: 'top-right'
+      },
+      {
+        selector: '.video-container',
+        label: 'Camera View',
+        desc: 'Live camera feed with a canvas overlay. Detected hand landmarks (21 points per hand) and finger connections are drawn here in real time.',
+        anchor: 'top-left'
+      },
+      {
+        selector: '#startBtn',
+        label: 'Start Camera',
+        desc: 'Requests access to your webcam via getUserMedia. You will see a browser permission prompt on first use.',
+        anchor: 'top-left'
+      },
+      {
+        selector: '#detectBtn',
+        label: 'Start Detection',
+        desc: 'Loads the MediaPipe Hands model from CDN and begins the real-time hand tracking inference loop. Tracks up to 2 hands simultaneously.',
+        anchor: 'top-left'
+      },
+      {
+        selector: '#stopBtn',
+        label: 'Stop Camera',
+        desc: 'Stops the camera stream and inference loop. You can restart anytime by clicking Start Camera again.',
+        anchor: 'top-left'
+      },
+      {
+        selector: '#handInfo',
+        label: 'Hand Info Panel',
+        desc: 'Appears below the controls during detection. Shows which hands are detected (Left/Right) along with their confidence scores.',
+        anchor: 'top-right',
+        variant: 'tip'
+      },
+      {
+        type: 'flow',
+        steps: [
+          { label: 'Start Camera', color: 'blue' },
+          { label: 'Start Detection', color: 'green' },
+          { label: 'Stop Camera', color: 'red' }
+        ]
+      }
+    ], {
+      title: 'How to Use — Hand Tracking'
+    });
+  </script>
+</body>
+</html>

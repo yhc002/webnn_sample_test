@@ -1,0 +1,56 @@
+- generic [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - heading "Hand Tracking with MediaPipe" [level=1] [ref=f1e3]
+    - paragraph [ref=f1e4]: Real-time hand landmark detection & tracking using MediaPipe Hands
+    - generic [ref=f1e5]: Ready. Click "Start Camera" to begin.
+    - generic [ref=f1e9]:
+      - button "Start Camera" [ref=f1e10] [cursor=pointer]
+      - button "Start Detection" [disabled] [ref=f1e11]
+      - button "Stop Camera" [disabled] [ref=f1e12]
+  - generic [ref=f1e14]:
+    - button "Close help" [ref=f1e16] [cursor=pointer]: ×
+    - generic [ref=f1e18]:
+      - generic [ref=f1e19]: How to Use — Hand Tracking
+      - generic [ref=f1e20]: Real-time hand landmark detection & tracking using MediaPipe Hands
+      - generic [ref=f1e21]:
+        - generic [ref=f1e22]: "1"
+        - generic [ref=f1e23]:
+          - generic [ref=f1e24]: Status Bar
+          - generic [ref=f1e25]: Shows the current state of the demo and displays frames-per-second (FPS) during hand tracking inference.
+      - generic [ref=f1e26]:
+        - generic [ref=f1e27]: "2"
+        - generic [ref=f1e28]:
+          - generic [ref=f1e29]: Camera View
+          - generic [ref=f1e30]: Live camera feed with a canvas overlay. Detected hand landmarks (21 points per hand) and finger connections are drawn here in real time.
+      - generic [ref=f1e31]:
+        - generic [ref=f1e32]: Start Camera
+        - generic [ref=f1e33]: →
+        - generic [ref=f1e34]: Start Detection
+        - generic [ref=f1e35]: →
+        - generic [ref=f1e36]: Stop Camera
+      - generic [ref=f1e37]:
+        - generic [ref=f1e38]: "3"
+        - generic [ref=f1e39]:
+          - generic [ref=f1e40]: Start Camera
+          - generic [ref=f1e41]: Requests access to your webcam via getUserMedia. You will see a browser permission prompt on first use.
+      - generic [ref=f1e42]:
+        - generic [ref=f1e43]: "4"
+        - generic [ref=f1e44]:
+          - generic [ref=f1e45]: Start Detection
+          - generic [ref=f1e46]: Loads the MediaPipe Hands model from CDN and begins the real-time hand tracking inference loop. Tracks up to 2 hands simultaneously.
+      - generic [ref=f1e47]:
+        - generic [ref=f1e48]: "5"
+        - generic [ref=f1e49]:
+          - generic [ref=f1e50]: Stop Camera
+          - generic [ref=f1e51]: Stops the camera stream and inference loop. You can restart anytime by clicking Start Camera again.
+      - generic [ref=f1e52]:
+        - generic [ref=f1e53]: "6"
+        - generic [ref=f1e54]:
+          - generic [ref=f1e55]: Hand Info Panel
+          - generic [ref=f1e56]: Appears below the controls during detection. Shows which hands are detected (Left/Right) along with their confidence scores.
+      - generic [ref=f1e57]:
+        - generic [ref=f1e58]: "7"
+        - generic [ref=f1e59]:
+          - generic [ref=f1e60]: Browser Support
+          - generic [ref=f1e61]: This demo uses MediaPipe Hands via WebAssembly and works in any modern browser — no special flags required.
+  - button "How to use" [active] [ref=f1e13] [cursor=pointer]: "?"

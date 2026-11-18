@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebNN Facial Landmark Detection</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../shared/css/help-overlay.css">
+</head>
+<body>
+  <div class="container">
+    <h1>WebNN Facial Landmark Detection</h1>
+    <p class="subtitle">Real-time face detection &amp; 68-point landmark tracking using the WebNN API</p>
+
+    <div id="error" class="error" hidden></div>
+
+    <div class="status-bar">
+      <span id="status">Checking WebNN support...</span>
+      <span id="fps" hidden></span>
+    </div>
+
+    <div class="video-container" id="videoContainer">
+      <video id="camera" autoplay playsinline></video>
+      <canvas id="overlay"></canvas>
+    </div>
+
+    <div class="controls">
+      <div class="control-group">
+        <label for="deviceSelect">Device:</label>
+        <select id="deviceSelect">
+          <option value="gpu">GPU</option>
+          <option value="cpu">CPU</option>
+        </select>
+      </div>
+      <button id="startBtn" disabled>Start Camera</button>
+      <button id="detectBtn" disabled>Start Detection</button>
+      <button id="stopBtn" disabled>Stop Camera</button>
+    </div>
+
+    <div id="loadProgress" class="progress" hidden>
+      <div class="progress-step" id="stepLoad">Loading models...</div>
+      <div class="progress-step" id="stepBuild">Building graphs...</div>
+      <div class="progress-step" id="stepInfer">Running inference...</div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+  <script type="module">
+    import { initHelpOverlay } from '../shared/js/help-overlay.js';
+    initHelpOverlay([
+      {
+        selector: '.status-bar',
+        label: 'Status Bar',
+        desc: 'Shows the current state of the demo (checking WebNN support, camera active, detecting, etc.) and displays FPS during inference.',
+        anchor: 'top-right'
+      },
+      {
+        selector: '.video-container',
+        label: 'Camera View',
+        desc: 'Live camera feed with a canvas overlay on top. Detected face bounding boxes and 68 facial landmark points are drawn here in real time.',
+        anchor: 'top-left'
+      },
+      {
+        selector: '.control-group',
+        label: 'Device Selector',
+        desc: 'Choose between GPU and CPU for WebNN inference. GPU is faster but requires hardware support; CPU works as a fallback.',
+        anchor: 'top-left'
+      },
+      {
+        selector: '#startBtn',
+        label: 'Start Camera',
+        desc: 'Requests access to your webcam via getUserMedia. You will see a browser permission prompt on first use.',
+        anchor: 'top-left'
+      },
+      {
+        selector: '#detectBtn',
+        label: 'Start Detection',
+        desc: 'Loads the SSD MobileNetV2 face detector and Face Landmark models, builds the WebNN graph, and begins the real-time inference loop.',
+        anchor: 'top-left'
+      },
+      {
+        selector: '#stopBtn',
+        label: 'Stop Camera',
+        desc: 'Stops the camera stream and inference loop. You can restart anytime by clicking Start Camera again.',
+        anchor: 'top-left'
+      },
+      {
+        selector: '#loadProgress',
+        label: 'Progress Indicator',
+        desc: 'Appears while models are loading. Shows three stages: loading model weights, building the WebNN graph, and starting inference.',
+        anchor: 'top-right'
+      },
+      {
+        type: 'flow',
+        steps: [
+          { label: 'Start Camera', color: 'blue' },
+          { label: 'Start Detection', color: 'green' },
+          { label: 'Stop Camera', color: 'red' }
+        ]
+      }
+    ], {
+      title: 'How to Use — Facial Detection'
+    });
+  </script>
+</body>
+</html>

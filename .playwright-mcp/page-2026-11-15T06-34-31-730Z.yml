@@ -1,0 +1,10 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - heading "Hand Tracking with MediaPipe" [level=1] [ref=f1e3]
+    - paragraph [ref=f1e4]: Real-time hand landmark detection & tracking using MediaPipe Hands
+    - generic [ref=f1e5]: Ready. Click "Start Camera" to begin.
+    - generic [ref=f1e9]:
+      - button "Start Camera" [ref=f1e10] [cursor=pointer]
+      - button "Start Detection" [disabled] [ref=f1e11]
+      - button "Stop Camera" [disabled] [ref=f1e12]
+  - button "How to use" [ref=f1e13] [cursor=pointer]: "?"

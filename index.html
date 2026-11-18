@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebNN & ML Sample Demos</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 680px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-top: 32px;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #888;
+      margin: 4px 0 32px;
+    }
+
+    .demos {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .demo-card {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 24px;
+      text-align: left;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s, transform 0.1s;
+      display: block;
+    }
+
+    .demo-card:hover {
+      background: #1a2a4e;
+      transform: translateY(-2px);
+    }
+
+    .demo-card h2 {
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .demo-card p {
+      font-size: 0.85rem;
+      color: #aaa;
+      line-height: 1.5;
+    }
+
+    .demo-card .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-top: 12px;
+      font-weight: 600;
+    }
+
+    .tag-webnn {
+      background: #3b82f622;
+      color: #60a5fa;
+      border: 1px solid #3b82f644;
+    }
+
+    .tag-mediapipe {
+      background: #22c55e22;
+      color: #4ade80;
+      border: 1px solid #22c55e44;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>WebNN &amp; ML Sample Demos</h1>
+    <p class="subtitle">Real-time ML-powered computer vision in the browser</p>
+
+    <div class="demos">
+      <a class="demo-card" href="facial_detection/">
+        <h2>Facial Landmark Detection</h2>
+        <p>Detects faces and tracks 68 facial keypoints (eyes, nose, mouth, jawline) in real time using the raw WebNN MLGraphBuilder API. Requires Chrome/Edge with WebNN flag enabled.</p>
+        <span class="tag tag-webnn">WebNN API</span>
+      </a>
+
+      <a class="demo-card" href="hand_tracking/">
+        <h2>Hand Tracking</h2>
+        <p>Detects up to 2 hands and tracks 21 landmarks per hand with finger connections and Left/Right labels. Uses MediaPipe Hands JS loaded from CDN.</p>
+        <span class="tag tag-mediapipe">MediaPipe</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

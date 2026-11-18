@@ -1,0 +1,252 @@
+.help-btn {
+  padding: 10px 24px;
+  border-radius: 6px;
+  border: 2px solid #3b82f6;
+  background: #16213e;
+  color: #3b82f6;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.help-btn:hover {
+  background: #3b82f6;
+  color: #fff;
+}
+
+/* --- Overlay --- */
+
+.help-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+}
+
+.help-overlay.visible {
+  display: block;
+}
+
+.help-overlay__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+}
+
+.help-overlay__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1003;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 60px;
+  background: linear-gradient(180deg, rgba(22, 33, 62, 0.97) 0%, rgba(22, 33, 62, 0.85) 100%);
+  border-bottom: 1px solid #2a3a5c;
+}
+
+.help-overlay__title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.help-overlay__hint {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.help-overlay__close {
+  position: fixed;
+  top: 8px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #555;
+  background: #1a1a2e;
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 1004;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.2s;
+}
+
+.help-overlay__close:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #fff;
+}
+
+/* --- Markers --- */
+
+.help-marker {
+  position: absolute;
+  z-index: 1002;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35), 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s, box-shadow 0.15s;
+  animation: help-marker-pulse 2s ease-in-out infinite;
+  pointer-events: auto;
+}
+
+.help-marker:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.5), 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.help-marker.active {
+  background: #2563eb;
+  transform: scale(1.15);
+  animation: none;
+}
+
+.help-marker--green { background: #22c55e; box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.35), 0 2px 8px rgba(0, 0, 0, 0.5); }
+.help-marker--green:hover { box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.5), 0 4px 16px rgba(0, 0, 0, 0.5); }
+.help-marker--green.active { background: #16a34a; }
+
+.help-marker--amber { background: #ca8a04; box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.35), 0 2px 8px rgba(0, 0, 0, 0.5); }
+.help-marker--amber:hover { box-shadow: 0 0 0 5px rgba(202, 138, 4, 0.5), 0 4px 16px rgba(0, 0, 0, 0.5); }
+.help-marker--amber.active { background: #a16207; }
+
+@keyframes help-marker-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35), 0 2px 8px rgba(0, 0, 0, 0.5); }
+  50%      { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.2),  0 2px 8px rgba(0, 0, 0, 0.5); }
+}
+
+/* --- Highlight outlines around targeted elements --- */
+
+.help-highlight {
+  position: absolute;
+  z-index: 1001;
+  border: 2px solid #3b82f6;
+  border-radius: 10px;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.help-highlight--green { border-color: #22c55e; box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12); }
+.help-highlight--amber { border-color: #ca8a04; box-shadow: 0 0 0 4px rgba(202, 138, 4, 0.12); }
+
+/* --- Tooltip --- */
+
+.help-tooltip {
+  position: absolute;
+  z-index: 1003;
+  width: 280px;
+  background: #16213e;
+  border: 1px solid #2a3a5c;
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.help-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.help-tooltip__label {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 6px;
+}
+
+.help-tooltip__desc {
+  color: #aaa;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.help-tooltip__arrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #16213e;
+  border-left: 1px solid #2a3a5c;
+  border-top: 1px solid #2a3a5c;
+  transform: rotate(45deg);
+}
+
+/* --- Flow legend at bottom --- */
+
+.help-flow-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1003;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: linear-gradient(0deg, rgba(22, 33, 62, 0.97) 0%, rgba(22, 33, 62, 0.85) 100%);
+  border-top: 1px solid #2a3a5c;
+  flex-wrap: wrap;
+}
+
+.help-flow-bar__label {
+  color: #888;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.help-flow-bar__step {
+  background: #0f172a;
+  border: 1px solid #2a3a5c;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  color: #e0e0e0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.help-flow-bar__step--blue  { border-color: #3b82f6; color: #60a5fa; }
+.help-flow-bar__step--green { border-color: #22c55e; color: #4ade80; }
+.help-flow-bar__step--red   { border-color: #ef4444; color: #f87171; }
+
+.help-flow-bar__arrow {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  .help-tooltip {
+    width: 220px;
+    padding: 10px 12px;
+  }
+  .help-marker {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+  }
+}

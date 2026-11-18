@@ -1,0 +1,24 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - heading "WebNN Facial Landmark Detection" [level=1] [ref=e3]
+    - paragraph [ref=e4]: Real-time face detection & 68-point landmark tracking using the WebNN API
+    - generic [ref=e5]:
+      - text: Your browser does not support WebNN. Please use Chrome 113+ or Edge with the WebNN flag enabled. Go to
+      - code [ref=e6]: chrome://flags
+      - text: and enable
+      - code [ref=e7]: "#web-machine-learning-neural-network"
+      - text: . See
+      - link "WebNN Installation Guides" [ref=e8] [cursor=pointer]:
+        - /url: https://github.com/webmachinelearning/webnn-samples/#webnn-installation-guides
+      - text: for details.
+    - generic [ref=e9]: WebNN not supported
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]: "Device:"
+        - combobox "Device:" [ref=e16] [cursor=pointer]:
+          - option "GPU" [selected]
+          - option "CPU"
+      - button "Start Camera" [disabled] [ref=e17]
+      - button "Start Detection" [disabled] [ref=e18]
+      - button "Stop Camera" [disabled] [ref=e19]
+  - button "How to use" [ref=e20] [cursor=pointer]: "?"
